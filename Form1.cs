@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 
 
@@ -49,7 +50,7 @@ namespace CollegeApp
 
         private void Main_Load(object sender, EventArgs e)
         {
-           
+            InitializeLessonComboBox();
         }
 
         private struct Student
@@ -93,6 +94,9 @@ namespace CollegeApp
             teachers[1] = new Teacher("Amogus", "qwerty", "Art");
         }
 
+
+
+        //_________________________________Вкладка Студенты______________________________
         private void AddStudent(string fullName, string subject1, string subject2)
         {
             if (string.IsNullOrWhiteSpace(fullName) || string.IsNullOrWhiteSpace(subject1) || string.IsNullOrWhiteSpace(subject2))
@@ -105,6 +109,7 @@ namespace CollegeApp
             {
                 students[currentStudents++] = new Student(fullName, subject1, subject2);
                 UpdateDataGridView();
+                UpdateGradesGridView();
                 ClearSubjectSelection();
             }
             else
@@ -119,6 +124,7 @@ namespace CollegeApp
             {
                 students[index] = new Student(fullName, subject1, subject2);
                 UpdateDataGridView();
+                UpdateGradesGridView();
             }
             else
             {
@@ -136,6 +142,7 @@ namespace CollegeApp
                 }
                 currentStudents--;
                 UpdateDataGridView();
+                UpdateGradesGridView();
             }
             else
             {
@@ -262,9 +269,129 @@ namespace CollegeApp
             return selectedCount == MaxSubjects;
         }
 
+
+
+        //_________________________________Вкладка Оценки______________________________
+
+
+        private void InitializeLessonComboBox()
+        {
+            comboBoxLesson.Items.Clear();
+            for (int i = 1; i <= 12; i++)
+            {
+                comboBoxLesson.Items.Add(i);
+            }
+        }
+
+        private void AddGrade(int studentIndex, string subject, int lessonIndex, int grade)
+        {
+            if (studentIndex >= 0 && studentIndex < currentStudents)
+            {
+                if (subject == students[studentIndex].Subject1)
+                {
+                    students[studentIndex].Subject1Grades[lessonIndex] = grade;
+                }
+                else if (subject == students[studentIndex].Subject2)
+                {
+                    students[studentIndex].Subject2Grades[lessonIndex] = grade;
+                }
+                UpdateGradesGridView();
+            }
+        }
+
+        private void UpdateGradesGridView()
+        {
+            GridViewGrades.Rows.Clear();
+            for (int i = 0; i < currentStudents; i++)
+            {
+                GridViewGrades.Rows.Add(
+                    students[i].FullName,
+                    students[i].Subject1,
+                    string.Join(", ", students[i].Subject1Grades),
+                    students[i].Subject2,
+                    string.Join(", ", students[i].Subject2Grades)
+                );
+            }
+            UpdateStudentsComboBox();
+        }
+
+        private double CalculateAverageGrade(int studentIndex)
+        {
+            if (studentIndex >= 0 && studentIndex < currentStudents)
+            {
+                double sum = students[studentIndex].Subject1Grades.Sum() + students[studentIndex].Subject2Grades.Sum();
+                int count = students[studentIndex].Subject1Grades.Length + students[studentIndex].Subject2Grades.Length;
+                return sum / count;
+            }
+            return 0;
+        }
+
         private void ShowError(string message)
         {
             MessageBox.Show(message, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private int GetSelectedLessonIndex()
+        {
+            if (comboBoxLesson.SelectedItem != null)
+            {
+                return (int)comboBoxLesson.SelectedItem - 1; // Индексы начинаются с 0
+            }
+            return -1; // Возвращаем -1, если ничего не выбрано
+        }
+
+        private int GetSelectedStudentIndex()
+        {
+            return comboBoxStudents.SelectedIndex;
+        }
+
+        private string GetSelectedSubject()
+        {
+            return comboBoxSubjects.SelectedItem as string;
+        }
+
+        private int GetSelectedGrade()
+        {
+            return (int)numericUpDownGrade.Value;
+        }
+
+        
+
+        private void buttonAddGrade_Click(object sender, EventArgs e)
+        {
+            int studentIndex = GetSelectedStudentIndex();
+            string subject = GetSelectedSubject();
+            int lessonIndex = GetSelectedLessonIndex();
+            int grade = GetSelectedGrade();
+
+            if (studentIndex >= 0 && !string.IsNullOrEmpty(subject) && lessonIndex >= 0)
+            {
+                AddGrade(studentIndex, subject, lessonIndex, grade);
+            }
+            else
+            {
+                ShowError("Пожалуйста, выберите студента, предмет и номер занятия.");
+            }
+        }
+
+        private void UpdateStudentsComboBox()
+        {
+            comboBoxStudents.Items.Clear();
+            for (int i = 0; i < currentStudents; i++)
+            {
+                comboBoxStudents.Items.Add(students[i].FullName);
+            }
+        }
+
+        private void comboBoxStudents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int selectedIndex = comboBoxStudents.SelectedIndex;
+            if (selectedIndex >= 0 && selectedIndex < currentStudents)
+            {
+                comboBoxSubjects.Items.Clear();
+                comboBoxSubjects.Items.Add(students[selectedIndex].Subject1);
+                comboBoxSubjects.Items.Add(students[selectedIndex].Subject2);
+            }
         }
     }
 }

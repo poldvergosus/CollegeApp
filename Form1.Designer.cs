@@ -42,18 +42,29 @@
             this.GridViewStudents = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.GridViewGrades = new System.Windows.Forms.DataGridView();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSubjects = new System.Windows.Forms.ComboBox();
+            this.comboBoxStudents = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subject1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Subject2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StudentFullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sub1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sub1Grades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sub2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Sub2Grades = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.numericUpDownGrade = new System.Windows.Forms.NumericUpDown();
+            this.buttonAddGrade = new System.Windows.Forms.Button();
+            this.comboBoxLesson = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStudents)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewGrades)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGrade)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -65,7 +76,7 @@
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(776, 435);
+            this.tabControl1.Size = new System.Drawing.Size(872, 435);
             this.tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -83,7 +94,7 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(768, 409);
+            this.tabPage1.Size = new System.Drawing.Size(864, 409);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Список студентов";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -185,52 +196,66 @@
             this.Subject2});
             this.GridViewStudents.Location = new System.Drawing.Point(3, 6);
             this.GridViewStudents.Name = "GridViewStudents";
-            this.GridViewStudents.Size = new System.Drawing.Size(759, 285);
+            this.GridViewStudents.Size = new System.Drawing.Size(853, 285);
             this.GridViewStudents.TabIndex = 0;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.comboBoxLesson);
+            this.tabPage2.Controls.Add(this.buttonAddGrade);
+            this.tabPage2.Controls.Add(this.numericUpDownGrade);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.GridViewGrades);
-            this.tabPage2.Controls.Add(this.comboBox2);
-            this.tabPage2.Controls.Add(this.comboBox1);
+            this.tabPage2.Controls.Add(this.comboBoxSubjects);
+            this.tabPage2.Controls.Add(this.comboBoxStudents);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(768, 409);
+            this.tabPage2.Size = new System.Drawing.Size(864, 409);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Оценки";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // GridViewGrades
             // 
-            this.GridViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.GridViewGrades.Location = new System.Drawing.Point(6, 33);
+            this.GridViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.GridViewGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.StudentFullName,
+            this.Sub1,
+            this.Sub1Grades,
+            this.Sub2,
+            this.Sub2Grades});
+            this.GridViewGrades.Location = new System.Drawing.Point(3, 57);
             this.GridViewGrades.Name = "GridViewGrades";
-            this.GridViewGrades.Size = new System.Drawing.Size(756, 370);
+            this.GridViewGrades.Size = new System.Drawing.Size(853, 346);
             this.GridViewGrades.TabIndex = 2;
             // 
-            // comboBox2
+            // comboBoxSubjects
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(133, 6);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 1;
+            this.comboBoxSubjects.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxSubjects.FormattingEnabled = true;
+            this.comboBoxSubjects.Location = new System.Drawing.Point(133, 29);
+            this.comboBoxSubjects.Name = "comboBoxSubjects";
+            this.comboBoxSubjects.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxSubjects.TabIndex = 1;
             // 
-            // comboBox1
+            // comboBoxStudents
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(6, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 21);
-            this.comboBox1.TabIndex = 0;
+            this.comboBoxStudents.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxStudents.FormattingEnabled = true;
+            this.comboBoxStudents.Location = new System.Drawing.Point(6, 29);
+            this.comboBoxStudents.Name = "comboBoxStudents";
+            this.comboBoxStudents.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxStudents.TabIndex = 0;
+            this.comboBoxStudents.SelectedIndexChanged += new System.EventHandler(this.comboBoxStudents_SelectedIndexChanged);
             // 
             // tabPage3
             // 
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(768, 409);
+            this.tabPage3.Size = new System.Drawing.Size(864, 409);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Отчеты";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -264,13 +289,104 @@
             this.Subject2.Name = "Subject2";
             this.Subject2.Width = 170;
             // 
+            // StudentFullName
+            // 
+            this.StudentFullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.StudentFullName.HeaderText = "ФИО";
+            this.StudentFullName.Name = "StudentFullName";
+            // 
+            // Sub1
+            // 
+            this.Sub1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sub1.HeaderText = "Направление 1";
+            this.Sub1.Name = "Sub1";
+            // 
+            // Sub1Grades
+            // 
+            this.Sub1Grades.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sub1Grades.HeaderText = "Оценки";
+            this.Sub1Grades.Name = "Sub1Grades";
+            this.Sub1Grades.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // Sub2
+            // 
+            this.Sub2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sub2.HeaderText = "Направление 2";
+            this.Sub2.Name = "Sub2";
+            // 
+            // Sub2Grades
+            // 
+            this.Sub2Grades.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Sub2Grades.HeaderText = "Оценки";
+            this.Sub2Grades.Name = "Sub2Grades";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(82, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "ФИО студента";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(130, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Предмет";
+            // 
+            // numericUpDownGrade
+            // 
+            this.numericUpDownGrade.Location = new System.Drawing.Point(387, 29);
+            this.numericUpDownGrade.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numericUpDownGrade.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.numericUpDownGrade.Name = "numericUpDownGrade";
+            this.numericUpDownGrade.ReadOnly = true;
+            this.numericUpDownGrade.Size = new System.Drawing.Size(120, 20);
+            this.numericUpDownGrade.TabIndex = 5;
+            this.numericUpDownGrade.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // buttonAddGrade
+            // 
+            this.buttonAddGrade.Location = new System.Drawing.Point(513, 27);
+            this.buttonAddGrade.Name = "buttonAddGrade";
+            this.buttonAddGrade.Size = new System.Drawing.Size(75, 23);
+            this.buttonAddGrade.TabIndex = 6;
+            this.buttonAddGrade.Text = "button1";
+            this.buttonAddGrade.UseVisualStyleBackColor = true;
+            this.buttonAddGrade.Click += new System.EventHandler(this.buttonAddGrade_Click);
+            // 
+            // comboBoxLesson
+            // 
+            this.comboBoxLesson.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxLesson.FormattingEnabled = true;
+            this.comboBoxLesson.Location = new System.Drawing.Point(260, 28);
+            this.comboBoxLesson.Name = "comboBoxLesson";
+            this.comboBoxLesson.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxLesson.TabIndex = 7;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(884, 450);
             this.Controls.Add(this.tabControl1);
-            this.MaximumSize = new System.Drawing.Size(816, 489);
+            this.MaximumSize = new System.Drawing.Size(900, 489);
             this.MinimumSize = new System.Drawing.Size(816, 489);
             this.Name = "Main";
             this.Text = "Эл. деканат";
@@ -280,7 +396,9 @@
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStudents)).EndInit();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewGrades)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGrade)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -296,8 +414,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ButtonAdd;
         private System.Windows.Forms.DataGridView GridViewGrades;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSubjects;
+        private System.Windows.Forms.ComboBox comboBoxStudents;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.Button ButtonEdit;
@@ -308,6 +426,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subject1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Subject2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn StudentFullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sub1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sub1Grades;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sub2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Sub2Grades;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox comboBoxLesson;
+        private System.Windows.Forms.Button buttonAddGrade;
+        private System.Windows.Forms.NumericUpDown numericUpDownGrade;
     }
 }
 
