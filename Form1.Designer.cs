@@ -30,8 +30,8 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.checkBoxArt = new System.Windows.Forms.CheckBox();
-            this.checkBoxScience = new System.Windows.Forms.CheckBox();
+            this.checkBoxChemistry = new System.Windows.Forms.CheckBox();
+            this.checkBoxPhysics = new System.Windows.Forms.CheckBox();
             this.checkBoxMath = new System.Windows.Forms.CheckBox();
             this.ButtonDelete = new System.Windows.Forms.Button();
             this.ButtonEdit = new System.Windows.Forms.Button();
@@ -70,8 +70,8 @@
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.checkBoxArt);
-            this.tabPage1.Controls.Add(this.checkBoxScience);
+            this.tabPage1.Controls.Add(this.checkBoxChemistry);
+            this.tabPage1.Controls.Add(this.checkBoxPhysics);
             this.tabPage1.Controls.Add(this.checkBoxMath);
             this.tabPage1.Controls.Add(this.ButtonDelete);
             this.tabPage1.Controls.Add(this.ButtonEdit);
@@ -88,36 +88,36 @@
             this.tabPage1.Text = "Список студентов";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // checkBoxArt
+            // checkBoxChemistry
             // 
-            this.checkBoxArt.AutoSize = true;
-            this.checkBoxArt.Location = new System.Drawing.Point(239, 384);
-            this.checkBoxArt.Name = "checkBoxArt";
-            this.checkBoxArt.Size = new System.Drawing.Size(80, 17);
-            this.checkBoxArt.TabIndex = 12;
-            this.checkBoxArt.Text = "checkBox3";
-            this.checkBoxArt.UseVisualStyleBackColor = true;
-            this.checkBoxArt.CheckedChanged += new System.EventHandler(this.checkBoxArt_CheckedChanged);
+            this.checkBoxChemistry.AutoSize = true;
+            this.checkBoxChemistry.Location = new System.Drawing.Point(239, 384);
+            this.checkBoxChemistry.Name = "checkBoxArt";
+            this.checkBoxChemistry.Size = new System.Drawing.Size(59, 17);
+            this.checkBoxChemistry.TabIndex = 12;
+            this.checkBoxChemistry.Text = "Химия";
+            this.checkBoxChemistry.UseVisualStyleBackColor = true;
+            this.checkBoxChemistry.CheckedChanged += new System.EventHandler(this.checkBoxArt_CheckedChanged);
             // 
-            // checkBoxScience
+            // checkBoxPhysics
             // 
-            this.checkBoxScience.AutoSize = true;
-            this.checkBoxScience.Location = new System.Drawing.Point(239, 361);
-            this.checkBoxScience.Name = "checkBoxScience";
-            this.checkBoxScience.Size = new System.Drawing.Size(80, 17);
-            this.checkBoxScience.TabIndex = 11;
-            this.checkBoxScience.Text = "checkBox2";
-            this.checkBoxScience.UseVisualStyleBackColor = true;
-            this.checkBoxScience.CheckedChanged += new System.EventHandler(this.checkBoxScience_CheckedChanged);
+            this.checkBoxPhysics.AutoSize = true;
+            this.checkBoxPhysics.Location = new System.Drawing.Point(239, 361);
+            this.checkBoxPhysics.Name = "checkBoxScience";
+            this.checkBoxPhysics.Size = new System.Drawing.Size(67, 17);
+            this.checkBoxPhysics.TabIndex = 11;
+            this.checkBoxPhysics.Text = "Физика";
+            this.checkBoxPhysics.UseVisualStyleBackColor = true;
+            this.checkBoxPhysics.CheckedChanged += new System.EventHandler(this.checkBoxScience_CheckedChanged);
             // 
             // checkBoxMath
             // 
             this.checkBoxMath.AutoSize = true;
             this.checkBoxMath.Location = new System.Drawing.Point(239, 338);
             this.checkBoxMath.Name = "checkBoxMath";
-            this.checkBoxMath.Size = new System.Drawing.Size(80, 17);
+            this.checkBoxMath.Size = new System.Drawing.Size(89, 17);
             this.checkBoxMath.TabIndex = 10;
-            this.checkBoxMath.Text = "checkBox1";
+            this.checkBoxMath.Text = "Математика";
             this.checkBoxMath.UseVisualStyleBackColor = true;
             this.checkBoxMath.CheckedChanged += new System.EventHandler(this.checkBoxMath_CheckedChanged);
             // 
@@ -304,8 +304,8 @@
         private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.Button ButtonEdit;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.CheckBox checkBoxArt;
-        private System.Windows.Forms.CheckBox checkBoxScience;
+        private System.Windows.Forms.CheckBox checkBoxChemistry;
+        private System.Windows.Forms.CheckBox checkBoxPhysics;
         private System.Windows.Forms.CheckBox checkBoxMath;
     }
 }

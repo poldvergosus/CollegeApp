@@ -194,7 +194,7 @@ namespace CollegeApp
         {
             if (GridViewStudents.SelectedRows.Count > 0)
             {
-                int index = GridViewStudents.SelectedRows[0].Index;
+                int index = GridViewStudents.SelectedRows[0].Index;//выбирает только один выбранный индекс, если выделено несколько
                 DeleteStudent(index);
             }
             else
@@ -210,9 +210,9 @@ namespace CollegeApp
             selectedSubjects[0] = null;
             selectedSubjects[1] = null;
 
-            UpdateSubjectSelection(checkBoxMath, "Math");
-            UpdateSubjectSelection(checkBoxScience, "Science");
-            UpdateSubjectSelection(checkBoxArt, "Art");
+            UpdateSubjectSelection(checkBoxMath, "Математика");
+            UpdateSubjectSelection(checkBoxPhysics, "Физика");
+            UpdateSubjectSelection(checkBoxChemistry, "Химия");
         }
 
         private void UpdateSubjectSelection(CheckBox checkBox, string subject)
@@ -249,8 +249,8 @@ namespace CollegeApp
         private void ClearSubjectSelection()
         {
             checkBoxMath.Checked = false;
-            checkBoxScience.Checked = false;
-            checkBoxArt.Checked = false;
+            checkBoxPhysics.Checked = false;
+            checkBoxChemistry.Checked = false;
 
             selectedCount = 0;
             selectedSubjects[0] = null;
