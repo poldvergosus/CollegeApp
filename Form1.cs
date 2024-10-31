@@ -20,7 +20,8 @@ using System.Windows.Forms;
  Количество занятий в месяц -4 по каждому направлению.
 Обучающийся может быть записан одновременно не более чем на два направления.
 Каждые 3 месяца подготавливается сводная ведомость оценок и определением среднего балла. 
-Предоставить возможность рейтинговой системы (список сильных и слабых обучающихся)*/
+Предоставить возможность рейтинговой системы (список сильных и слабых обучающихся)
+*/
 
 
 
@@ -270,7 +271,6 @@ namespace CollegeApp
         }
 
 
-
         //_________________________________Вкладка Оценки______________________________
 
 
@@ -315,7 +315,7 @@ namespace CollegeApp
             UpdateStudentsComboBox();
         }
 
-        private double CalculateAverageGrade(int studentIndex)
+        private double CalculateAverageGrade(int studentIndex)//исп. в отчете или оценках
         {
             if (studentIndex >= 0 && studentIndex < currentStudents)
             {
@@ -356,7 +356,6 @@ namespace CollegeApp
         }
 
         
-
         private void buttonAddGrade_Click(object sender, EventArgs e)
         {
             int studentIndex = GetSelectedStudentIndex();

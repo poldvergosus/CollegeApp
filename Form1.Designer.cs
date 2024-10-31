@@ -59,6 +59,8 @@
             this.numericUpDownGrade = new System.Windows.Forms.NumericUpDown();
             this.buttonAddGrade = new System.Windows.Forms.Button();
             this.comboBoxLesson = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStudents)).BeginInit();
@@ -201,6 +203,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.comboBoxLesson);
             this.tabPage2.Controls.Add(this.buttonAddGrade);
             this.tabPage2.Controls.Add(this.numericUpDownGrade);
@@ -380,6 +384,24 @@
             this.comboBoxLesson.Size = new System.Drawing.Size(121, 21);
             this.comboBoxLesson.TabIndex = 7;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(260, 13);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Номер урока";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(387, 13);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(45, 13);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "Оценка";
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -436,6 +458,8 @@
         private System.Windows.Forms.ComboBox comboBoxLesson;
         private System.Windows.Forms.Button buttonAddGrade;
         private System.Windows.Forms.NumericUpDown numericUpDownGrade;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
     }
 }
 
