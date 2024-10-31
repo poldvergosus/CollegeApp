@@ -65,8 +65,8 @@ namespace CollegeApp
                 FullName = fullName;
                 Subject1 = subject1;
                 Subject2 = subject2;
-                Subject1Grades = new int[4];
-                Subject2Grades = new int[4];
+                Subject1Grades = new int[12];
+                Subject2Grades = new int[12];
             }
         }
 

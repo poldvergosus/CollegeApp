@@ -40,15 +40,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TextName = new System.Windows.Forms.TextBox();
             this.GridViewStudents = new System.Windows.Forms.DataGridView();
-            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subject1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Subject2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.GridViewGrades = new System.Windows.Forms.DataGridView();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subject1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Subject2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GridViewStudents)).BeginInit();
@@ -92,7 +92,7 @@
             // 
             this.checkBoxChemistry.AutoSize = true;
             this.checkBoxChemistry.Location = new System.Drawing.Point(239, 384);
-            this.checkBoxChemistry.Name = "checkBoxArt";
+            this.checkBoxChemistry.Name = "checkBoxChemistry";
             this.checkBoxChemistry.Size = new System.Drawing.Size(59, 17);
             this.checkBoxChemistry.TabIndex = 12;
             this.checkBoxChemistry.Text = "Химия";
@@ -103,7 +103,7 @@
             // 
             this.checkBoxPhysics.AutoSize = true;
             this.checkBoxPhysics.Location = new System.Drawing.Point(239, 361);
-            this.checkBoxPhysics.Name = "checkBoxScience";
+            this.checkBoxPhysics.Name = "checkBoxPhysics";
             this.checkBoxPhysics.Size = new System.Drawing.Size(67, 17);
             this.checkBoxPhysics.TabIndex = 11;
             this.checkBoxPhysics.Text = "Физика";
@@ -188,24 +188,6 @@
             this.GridViewStudents.Size = new System.Drawing.Size(759, 285);
             this.GridViewStudents.TabIndex = 0;
             // 
-            // FullName
-            // 
-            this.FullName.HeaderText = "ФИО";
-            this.FullName.Name = "FullName";
-            this.FullName.Width = 200;
-            // 
-            // Subject1
-            // 
-            this.Subject1.HeaderText = "направление 1";
-            this.Subject1.Name = "Subject1";
-            this.Subject1.Width = 150;
-            // 
-            // Subject2
-            // 
-            this.Subject2.HeaderText = "направление 2";
-            this.Subject2.Name = "Subject2";
-            this.Subject2.Width = 150;
-            // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.GridViewGrades);
@@ -263,6 +245,25 @@
             this.tabPage4.Text = "Преподаватели";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // FullName
+            // 
+            this.FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.FullName.HeaderText = "ФИО";
+            this.FullName.MaxInputLength = 100;
+            this.FullName.Name = "FullName";
+            // 
+            // Subject1
+            // 
+            this.Subject1.HeaderText = "направление 1";
+            this.Subject1.Name = "Subject1";
+            this.Subject1.Width = 170;
+            // 
+            // Subject2
+            // 
+            this.Subject2.HeaderText = "направление 2";
+            this.Subject2.Name = "Subject2";
+            this.Subject2.Width = 170;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -297,9 +298,6 @@
         private System.Windows.Forms.DataGridView GridViewGrades;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subject1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Subject2;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button ButtonDelete;
         private System.Windows.Forms.Button ButtonEdit;
@@ -307,6 +305,9 @@
         private System.Windows.Forms.CheckBox checkBoxChemistry;
         private System.Windows.Forms.CheckBox checkBoxPhysics;
         private System.Windows.Forms.CheckBox checkBoxMath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FullName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subject1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Subject2;
     }
 }
 
