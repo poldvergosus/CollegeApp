@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Windows.Forms;
@@ -72,29 +73,50 @@ namespace CollegeApp
                 Subject2Grades = new int[12];
             }
 
-            public double AverageGrade
+           
+            public double CalculateAverageGrade()
             {
-                get
+                double total = 0;
+                int count = 0;
+
+                foreach (int grade in Subject1Grades)
                 {
-                    int totalGrade1 = Subject1Grades.Sum();
-                    int totalGrade2 = Subject2Grades.Sum();
-                    int totalLessons = Subject1Grades.Length + Subject2Grades.Length;
-                    return (totalGrade1 + totalGrade2) / (double)totalLessons;
+                    if (grade > 0)
+                    {
+                        total += grade;
+                        count++;
+                    }
                 }
+
+                foreach (int grade in Subject2Grades)
+                {
+                    if (grade > 0)
+                    {
+                        total += grade;
+                        count++;
+                    }
+                }
+
+                return count > 0 ? total / count : 0;
             }
         }
 
         private struct Teacher
+
         {
+            public string FullName;
             public string Login;
             public string Password;
             public string Subject;
+            public string WorkDays;
 
-            public Teacher(string login, string password, string subject)
+            public Teacher(string fullName, string login, string password, string subject)
             {
+                FullName = fullName;
                 Login = login;
                 Password = password;
                 Subject = subject;
+                WorkDays = "-------";
             }
         }
 
@@ -102,9 +124,6 @@ namespace CollegeApp
         {
             students = new Student[MaxStudents];
             teachers = new Teacher[MaxTeachers];
-
-            teachers[0] = new Teacher("Aboba", "123", "Math");
-            teachers[1] = new Teacher("Amogus", "qwerty", "Art");
         }
 
 
@@ -124,6 +143,7 @@ namespace CollegeApp
                 UpdateDataGridView();
                 UpdateGradesGridView();
                 ClearSubjectSelection();
+       
             }
             else
             {
@@ -308,6 +328,7 @@ namespace CollegeApp
                     students[studentIndex].Subject2Grades[lessonIndex] = grade;
                 }
                 UpdateGradesGridView();
+
             }
         }
 
@@ -316,6 +337,11 @@ namespace CollegeApp
             GridViewGrades.Rows.Clear();
             for (int i = 0; i < currentStudents; i++)
             {
+                string subject1Grades = students[i].Subject1Grades.Any(g => g != 0) ?
+                               string.Join(", ", students[i].Subject1Grades) : "Нет оценок";
+                string subject2Grades = students[i].Subject2Grades.Any(g => g != 0) ?
+                                        string.Join(", ", students[i].Subject2Grades) : "Нет оценок";
+
                 GridViewGrades.Rows.Add(
                     students[i].FullName,
                     students[i].Subject1,
@@ -325,18 +351,7 @@ namespace CollegeApp
                 );
             }
             UpdateStudentsComboBox();
-        }
-
-        private double CalculateAverageGrade(int studentIndex)//исп. в отчете или оценках
-        {
-            if (studentIndex >= 0 && studentIndex < currentStudents)
-            {
-                double sum = students[studentIndex].Subject1Grades.Sum() + students[studentIndex].Subject2Grades.Sum();
-                int count = students[studentIndex].Subject1Grades.Length + students[studentIndex].Subject2Grades.Length;
-                return sum / count;
-            }
-            return 0;
-        }
+          }
 
         private void ShowError(string message)
         {
@@ -407,81 +422,119 @@ namespace CollegeApp
 
 
 
-        //_________________________________Вкладка Отчеты______________________________
+        ////_________________________________Вкладка Отчеты______________________________
 
 
-        private void UpdatedataGridViewReport()
+        private void buttonSortStudents_Click(object sender, EventArgs e)
         {
-            DataTable dataTable = new DataTable();
-            dataTable.Columns.Add("ФИО");
-            dataTable.Columns.Add("Предмет");
-            dataTable.Columns.Add("Средний балл");
+            //созд копию
+            Student[] studentsToSort = new Student[currentStudents];
+            Array.Copy(students, studentsToSort, currentStudents);
 
-            foreach (Student student in students)
-            {
-                DataRow row1 = dataTable.NewRow();
-                row1["ФИО"] = student.FullName;
-                row1["Предмет"] = student.Subject1;
-                row1["Средний балл"] = GetAverageGrade(student, student.Subject1);
-                dataTable.Rows.Add(row1);
+            //по убыванию
+            Array.Sort(studentsToSort, (x, y) => y.CalculateAverageGrade().CompareTo(x.CalculateAverageGrade()));
 
-                DataRow row2 = dataTable.NewRow();
-                row2["ФИО"] = student.FullName;
-                row2["Предмет"] = student.Subject2;
-                row2["Средний балл"] = GetAverageGrade(student, student.Subject2);
-                dataTable.Rows.Add(row2);
-            }
-            dataGridViewReport.DataSource = dataTable;
+            DisplaySortedStudents(studentsToSort);
         }
 
-        private double GetAverageGrade(Student student, string subject)
+        private void DisplaySortedStudents(Student[] sortedStudents)
         {
-            if (subject == student.Subject1)
+            dataGridViewReport.Rows.Clear();
+
+            foreach (var student in sortedStudents)
             {
-                return student.Subject1Grades.Average();
+                dataGridViewReport.Rows.Add(
+                    student.FullName,
+                    student.CalculateAverageGrade().ToString("F2") // Отображение среднего с двумя знаками после точки
+                );
             }
-            else if (subject == student.Subject2)
-            {
-                return student.Subject2Grades.Average();
-            }
-            return 0;
         }
 
-        //сортировка студентов
-        private void SortStudents()
-        {
-            string Subject = comboBoxReport1.SelectedItem.ToString();
-            string Sorting = comboBoxReport2.SelectedItem.ToString();
 
-            switch (Sorting)
+        //_________________________________Вкладка Преподаватели______________________________
+
+        int currentTeachers = 0;
+        private void ButtonAddTeach_Click(object sender, EventArgs e)
+        {
+            string fullName = TextNameTeach.Text;
+            string login = TextBoxTeachLogin.Text;
+            string password = TextBoxTeachPass.Text;
+            string subject;
+
+            if (RadioButtonMath.Checked)
             {
-                case "от А до Я":
-                    students = students.OrderBy(s => s.FullName).ToArray();
-                    break;
-                case "от Я до А":
-                    students = students.OrderByDescending(s => s.FullName).ToArray();
-                    break;
-                case "по возрастанию":
-                    students = students.OrderBy(s => GetAverageGrade(s, subject)).ToArray();
-                    break;
-                case "по убыванию":
-                    students = students.OrderByDescending(s => GetAverageGrade(s, subject)).ToArray();
-                    break;
+                subject = RadioButtonMath.Text;
+            }
+            else if (RadioButtonPhysics.Checked)
+            {
+                subject = RadioButtonPhysics.Text;
+            }
+            else if (RadioButtonChemistry.Checked)
+            {
+                subject = RadioButtonChemistry.Text;
+            }
+            else
+            {
+                ShowError("Выберите предмет.");
+                return;
             }
 
-            //фильтр студентов по предмету
-            if (!string.IsNullOrEmpty(Subject))
+            char[] workDays = "-------".ToCharArray();
+            workDays[0] = checkBox1.Checked ? '+' : '-';
+            workDays[1] = checkBox2.Checked ? '+' : '-';
+            workDays[2] = checkBox3.Checked ? '+' : '-';
+            workDays[3] = checkBox4.Checked ? '+' : '-';
+            workDays[4] = checkBox5.Checked ? '+' : '-';
+            workDays[5] = checkBox6.Checked ? '+' : '-';
+            workDays[6] = checkBox7.Checked ? '+' : '-';
+
+            AddTeacher(fullName, login, password, subject);
+
+        }
+
+        private void AddTeacher(string fullName, string login, string password, string subject)
+        {
+            if (string.IsNullOrWhiteSpace(login) || string.IsNullOrWhiteSpace(password) || string.IsNullOrWhiteSpace(subject))
             {
-                students = students.Where(s => s.Subject1 == Subject || s.Subject2 == Subject).ToArray();
+                ShowError("Пожалуйста, заполните все поля.");
+                return;
             }
 
-            UpdatedataGridViewReport();
+            for (int i = 0; i < currentTeachers; i++)
+            {
+                if (teachers[i].Login == login)
+                {
+                    ShowError("Преподаватель с таким логином уже существует.");
+                    return;
+                }
+            }
+
+            if (currentTeachers < MaxTeachers)
+            {
+                teachers[currentTeachers++] = new Teacher(fullName, login, password, subject);
+                UpdateDataGridViewTeachers();
+            }
+            else
+            {
+                ShowError("Достигнуто максимальное количество преподавателей.");
+            }
         }
 
-        private void buttonReport1_Click(object sender, EventArgs e)
+        private void UpdateDataGridViewTeachers()
         {
-            UpdatedataGridViewReport();
-            SortStudents();
+
+            GridViewTeachers.Rows.Clear();
+            for (int i = 0; i < currentTeachers; i++)
+            {
+                GridViewTeachers.Rows.Add(teachers[i].FullName, teachers[i].Login, teachers[i].Password, teachers[i].Subject,
+            teachers[i].WorkDays[0],// Пн
+            teachers[i].WorkDays[1],// Вт
+            teachers[i].WorkDays[2],// Ср
+            teachers[i].WorkDays[3],// Чт
+            teachers[i].WorkDays[4] // Пт
+            );
+            }
         }
+
     }
 }
