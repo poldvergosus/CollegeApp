@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Полина\\Source\\Repos\\CollegeApp\\CollegeApp.csproj": {}
+    "C:\\Users\\drost\\Downloads\\222\\CollegeApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Полина\\Source\\Repos\\CollegeApp\\CollegeApp.csproj": {
+    "C:\\Users\\drost\\Downloads\\222\\CollegeApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Полина\\Source\\Repos\\CollegeApp\\CollegeApp.csproj",
+        "projectUniqueName": "C:\\Users\\drost\\Downloads\\222\\CollegeApp.csproj",
         "projectName": "CollegeApp",
-        "projectPath": "C:\\Users\\Полина\\Source\\Repos\\CollegeApp\\CollegeApp.csproj",
-        "packagesPath": "C:\\Users\\Полина\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Полина\\Source\\Repos\\CollegeApp\\obj\\",
+        "projectPath": "C:\\Users\\drost\\Downloads\\222\\CollegeApp.csproj",
+        "packagesPath": "C:\\Users\\drost\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\drost\\Downloads\\222\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Полина\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\drost\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -56,6 +52,10 @@
             "System.Data.DataSetExtensions": {
               "target": "Package",
               "version": "[4.5.0, )"
+            },
+            "System.Reactive": {
+              "target": "Package",
+              "version": "[6.0.1, )"
             }
           },
           "imports": [
@@ -77,7 +77,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.202/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

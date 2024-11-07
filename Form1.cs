@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -38,7 +39,7 @@ namespace CollegeApp
         private string studentName;
         private string[] selectedSubjects = new string[MaxSubjects];
         private int selectedCount;
-        
+
         private int currentStudents;
 
         private Teacher[] teachers;
@@ -69,6 +70,17 @@ namespace CollegeApp
                 Subject2 = subject2;
                 Subject1Grades = new int[12];
                 Subject2Grades = new int[12];
+            }
+
+            public double AverageGrade
+            {
+                get
+                {
+                    int totalGrade1 = Subject1Grades.Sum();
+                    int totalGrade2 = Subject2Grades.Sum();
+                    int totalLessons = Subject1Grades.Length + Subject2Grades.Length;
+                    return (totalGrade1 + totalGrade2) / (double)totalLessons;
+                }
             }
         }
 
@@ -355,7 +367,7 @@ namespace CollegeApp
             return (int)numericUpDownGrade.Value;
         }
 
-        
+
         private void buttonAddGrade_Click(object sender, EventArgs e)
         {
             int studentIndex = GetSelectedStudentIndex();
@@ -391,6 +403,85 @@ namespace CollegeApp
                 comboBoxSubjects.Items.Add(students[selectedIndex].Subject1);
                 comboBoxSubjects.Items.Add(students[selectedIndex].Subject2);
             }
+        }
+
+
+
+        //_________________________________Вкладка Отчеты______________________________
+
+
+        private void UpdatedataGridViewReport()
+        {
+            DataTable dataTable = new DataTable();
+            dataTable.Columns.Add("ФИО");
+            dataTable.Columns.Add("Предмет");
+            dataTable.Columns.Add("Средний балл");
+
+            foreach (Student student in students)
+            {
+                DataRow row1 = dataTable.NewRow();
+                row1["ФИО"] = student.FullName;
+                row1["Предмет"] = student.Subject1;
+                row1["Средний балл"] = GetAverageGrade(student, student.Subject1);
+                dataTable.Rows.Add(row1);
+
+                DataRow row2 = dataTable.NewRow();
+                row2["ФИО"] = student.FullName;
+                row2["Предмет"] = student.Subject2;
+                row2["Средний балл"] = GetAverageGrade(student, student.Subject2);
+                dataTable.Rows.Add(row2);
+            }
+            dataGridViewReport.DataSource = dataTable;
+        }
+
+        private double GetAverageGrade(Student student, string subject)
+        {
+            if (subject == student.Subject1)
+            {
+                return student.Subject1Grades.Average();
+            }
+            else if (subject == student.Subject2)
+            {
+                return student.Subject2Grades.Average();
+            }
+            return 0;
+        }
+
+        //сортировка студентов
+        private void SortStudents()
+        {
+            string Subject = comboBoxReport1.SelectedItem.ToString();
+            string Sorting = comboBoxReport2.SelectedItem.ToString();
+
+            switch (Sorting)
+            {
+                case "от А до Я":
+                    students = students.OrderBy(s => s.FullName).ToArray();
+                    break;
+                case "от Я до А":
+                    students = students.OrderByDescending(s => s.FullName).ToArray();
+                    break;
+                case "по возрастанию":
+                    students = students.OrderBy(s => GetAverageGrade(s, subject)).ToArray();
+                    break;
+                case "по убыванию":
+                    students = students.OrderByDescending(s => GetAverageGrade(s, subject)).ToArray();
+                    break;
+            }
+
+            //фильтр студентов по предмету
+            if (!string.IsNullOrEmpty(Subject))
+            {
+                students = students.Where(s => s.Subject1 == Subject || s.Subject2 == Subject).ToArray();
+            }
+
+            UpdatedataGridViewReport();
+        }
+
+        private void buttonReport1_Click(object sender, EventArgs e)
+        {
+            UpdatedataGridViewReport();
+            SortStudents();
         }
     }
 }
