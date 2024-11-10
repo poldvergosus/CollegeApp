@@ -70,6 +70,32 @@
             labelReport1 = new System.Windows.Forms.Label();
             comboBoxReport1 = new System.Windows.Forms.ComboBox();
             tabPage4 = new System.Windows.Forms.TabPage();
+            label9 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            checkBox5 = new System.Windows.Forms.CheckBox();
+            checkBox4 = new System.Windows.Forms.CheckBox();
+            checkBox3 = new System.Windows.Forms.CheckBox();
+            checkBox2 = new System.Windows.Forms.CheckBox();
+            checkBox1 = new System.Windows.Forms.CheckBox();
+            ButtonAddTeach = new System.Windows.Forms.Button();
+            groupBox1 = new System.Windows.Forms.GroupBox();
+            RadioButtonChemistry = new System.Windows.Forms.RadioButton();
+            RadioButtonPhysics = new System.Windows.Forms.RadioButton();
+            RadioButtonMath = new System.Windows.Forms.RadioButton();
+            TextBoxTeachPass = new System.Windows.Forms.TextBox();
+            TextBoxTeachLogin = new System.Windows.Forms.TextBox();
+            TextNameTeach = new System.Windows.Forms.TextBox();
+            GridViewTeachers = new System.Windows.Forms.DataGridView();
+            Column1ФИО = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column2Логин = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column3Пароль = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column4Предмет = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             tabControl1.SuspendLayout();
             tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)GridViewStudents).BeginInit();
@@ -78,6 +104,9 @@
             ((System.ComponentModel.ISupportInitialize)GridViewGrades).BeginInit();
             tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewReport).BeginInit();
+            tabPage4.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)GridViewTeachers).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -90,7 +119,7 @@
             tabControl1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new System.Drawing.Size(1017, 502);
+            tabControl1.Size = new System.Drawing.Size(1040, 502);
             tabControl1.TabIndex = 0;
             // 
             // tabPage1
@@ -109,7 +138,7 @@
             tabPage1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage1.Name = "tabPage1";
             tabPage1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage1.Size = new System.Drawing.Size(1009, 474);
+            tabPage1.Size = new System.Drawing.Size(1032, 474);
             tabPage1.TabIndex = 0;
             tabPage1.Text = "Список студентов";
             tabPage1.UseVisualStyleBackColor = true;
@@ -218,6 +247,7 @@
             GridViewStudents.Location = new System.Drawing.Point(4, 7);
             GridViewStudents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             GridViewStudents.Name = "GridViewStudents";
+            GridViewStudents.RowHeadersWidth = 51;
             GridViewStudents.Size = new System.Drawing.Size(995, 329);
             GridViewStudents.TabIndex = 0;
             // 
@@ -226,17 +256,20 @@
             FullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             FullName.HeaderText = "ФИО";
             FullName.MaxInputLength = 100;
+            FullName.MinimumWidth = 6;
             FullName.Name = "FullName";
             // 
             // Subject1
             // 
             Subject1.HeaderText = "направление 1";
+            Subject1.MinimumWidth = 6;
             Subject1.Name = "Subject1";
             Subject1.Width = 170;
             // 
             // Subject2
             // 
             Subject2.HeaderText = "направление 2";
+            Subject2.MinimumWidth = 6;
             Subject2.Name = "Subject2";
             Subject2.Width = 170;
             // 
@@ -256,7 +289,7 @@
             tabPage2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage2.Name = "tabPage2";
             tabPage2.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage2.Size = new System.Drawing.Size(1009, 474);
+            tabPage2.Size = new System.Drawing.Size(1032, 474);
             tabPage2.TabIndex = 1;
             tabPage2.Text = "Оценки";
             tabPage2.UseVisualStyleBackColor = true;
@@ -336,11 +369,13 @@
             // 
             // GridViewGrades
             // 
+            GridViewGrades.ColumnHeadersHeight = 29;
             GridViewGrades.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             GridViewGrades.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { StudentFullName, Sub1, Sub1Grades, Sub2, Sub2Grades });
             GridViewGrades.Location = new System.Drawing.Point(4, 66);
             GridViewGrades.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             GridViewGrades.Name = "GridViewGrades";
+            GridViewGrades.RowHeadersWidth = 51;
             GridViewGrades.Size = new System.Drawing.Size(995, 399);
             GridViewGrades.TabIndex = 2;
             // 
@@ -348,18 +383,21 @@
             // 
             StudentFullName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             StudentFullName.HeaderText = "ФИО";
+            StudentFullName.MinimumWidth = 6;
             StudentFullName.Name = "StudentFullName";
             // 
             // Sub1
             // 
             Sub1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             Sub1.HeaderText = "Направление 1";
+            Sub1.MinimumWidth = 6;
             Sub1.Name = "Sub1";
             // 
             // Sub1Grades
             // 
             Sub1Grades.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             Sub1Grades.HeaderText = "Оценки";
+            Sub1Grades.MinimumWidth = 6;
             Sub1Grades.Name = "Sub1Grades";
             Sub1Grades.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -367,12 +405,14 @@
             // 
             Sub2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             Sub2.HeaderText = "Направление 2";
+            Sub2.MinimumWidth = 6;
             Sub2.Name = "Sub2";
             // 
             // Sub2Grades
             // 
             Sub2Grades.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             Sub2Grades.HeaderText = "Оценки";
+            Sub2Grades.MinimumWidth = 6;
             Sub2Grades.Name = "Sub2Grades";
             // 
             // comboBoxSubjects
@@ -408,18 +448,20 @@
             tabPage3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage3.Name = "tabPage3";
             tabPage3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage3.Size = new System.Drawing.Size(1009, 474);
+            tabPage3.Size = new System.Drawing.Size(1032, 474);
             tabPage3.TabIndex = 2;
             tabPage3.Text = "Отчеты";
             tabPage3.UseVisualStyleBackColor = true;
             // 
             // dataGridViewReport
             // 
+            dataGridViewReport.ColumnHeadersHeight = 29;
             dataGridViewReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             dataGridViewReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3 });
             dataGridViewReport.Location = new System.Drawing.Point(7, 72);
             dataGridViewReport.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dataGridViewReport.Name = "dataGridViewReport";
+            dataGridViewReport.RowHeadersWidth = 51;
             dataGridViewReport.Size = new System.Drawing.Size(994, 365);
             dataGridViewReport.TabIndex = 14;
             // 
@@ -427,18 +469,21 @@
             // 
             dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn1.HeaderText = "ФИО";
+            dataGridViewTextBoxColumn1.MinimumWidth = 6;
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
             dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn2.HeaderText = "Предмет";
+            dataGridViewTextBoxColumn2.MinimumWidth = 6;
             dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
             dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewTextBoxColumn3.HeaderText = "Средний балл";
+            dataGridViewTextBoxColumn3.MinimumWidth = 6;
             dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
@@ -472,6 +517,7 @@
             buttonReport1.TabIndex = 11;
             buttonReport1.Text = "Отсортировать";
             buttonReport1.UseVisualStyleBackColor = true;
+            buttonReport1.Click += buttonSortStudents_Click;
             // 
             // labelReport1
             // 
@@ -496,24 +542,279 @@
             // 
             // tabPage4
             // 
+            tabPage4.Controls.Add(label9);
+            tabPage4.Controls.Add(label8);
+            tabPage4.Controls.Add(label7);
+            tabPage4.Controls.Add(checkBox5);
+            tabPage4.Controls.Add(checkBox4);
+            tabPage4.Controls.Add(checkBox3);
+            tabPage4.Controls.Add(checkBox2);
+            tabPage4.Controls.Add(checkBox1);
+            tabPage4.Controls.Add(ButtonAddTeach);
+            tabPage4.Controls.Add(groupBox1);
+            tabPage4.Controls.Add(TextBoxTeachPass);
+            tabPage4.Controls.Add(TextBoxTeachLogin);
+            tabPage4.Controls.Add(TextNameTeach);
+            tabPage4.Controls.Add(GridViewTeachers);
             tabPage4.Location = new System.Drawing.Point(4, 24);
             tabPage4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabPage4.Name = "tabPage4";
             tabPage4.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabPage4.Size = new System.Drawing.Size(1009, 474);
+            tabPage4.Size = new System.Drawing.Size(1032, 474);
             tabPage4.TabIndex = 3;
             tabPage4.Text = "Преподаватели";
             tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(38, 428);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(49, 15);
+            label9.TabIndex = 15;
+            label9.Text = "Пароль";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(38, 385);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(41, 15);
+            label8.TabIndex = 14;
+            label8.Text = "Логин";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(38, 342);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(34, 15);
+            label7.TabIndex = 13;
+            label7.Text = "ФИО";
+            // 
+            // checkBox5
+            // 
+            checkBox5.AutoSize = true;
+            checkBox5.Location = new System.Drawing.Point(892, 382);
+            checkBox5.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            checkBox5.Name = "checkBox5";
+            checkBox5.Size = new System.Drawing.Size(41, 19);
+            checkBox5.TabIndex = 10;
+            checkBox5.Text = "ПТ";
+            checkBox5.UseVisualStyleBackColor = true;
+            // 
+            // checkBox4
+            // 
+            checkBox4.AutoSize = true;
+            checkBox4.Location = new System.Drawing.Point(820, 382);
+            checkBox4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            checkBox4.Name = "checkBox4";
+            checkBox4.Size = new System.Drawing.Size(40, 19);
+            checkBox4.TabIndex = 9;
+            checkBox4.Text = "ЧТ";
+            checkBox4.UseVisualStyleBackColor = true;
+            // 
+            // checkBox3
+            // 
+            checkBox3.AutoSize = true;
+            checkBox3.Location = new System.Drawing.Point(726, 382);
+            checkBox3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            checkBox3.Name = "checkBox3";
+            checkBox3.Size = new System.Drawing.Size(41, 19);
+            checkBox3.TabIndex = 8;
+            checkBox3.Text = "СР";
+            checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // checkBox2
+            // 
+            checkBox2.AutoSize = true;
+            checkBox2.Location = new System.Drawing.Point(633, 383);
+            checkBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            checkBox2.Name = "checkBox2";
+            checkBox2.Size = new System.Drawing.Size(39, 19);
+            checkBox2.TabIndex = 7;
+            checkBox2.Text = "ВТ";
+            checkBox2.UseVisualStyleBackColor = true;
+            // 
+            // checkBox1
+            // 
+            checkBox1.AutoSize = true;
+            checkBox1.Location = new System.Drawing.Point(539, 383);
+            checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            checkBox1.Name = "checkBox1";
+            checkBox1.Size = new System.Drawing.Size(44, 19);
+            checkBox1.TabIndex = 6;
+            checkBox1.Text = "ПН";
+            checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // ButtonAddTeach
+            // 
+            ButtonAddTeach.Location = new System.Drawing.Point(435, 382);
+            ButtonAddTeach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            ButtonAddTeach.Name = "ButtonAddTeach";
+            ButtonAddTeach.Size = new System.Drawing.Size(75, 61);
+            ButtonAddTeach.TabIndex = 5;
+            ButtonAddTeach.Text = "Добавить   / Изменить";
+            ButtonAddTeach.UseVisualStyleBackColor = true;
+            ButtonAddTeach.Click += ButtonAddTeach_Click;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(RadioButtonChemistry);
+            groupBox1.Controls.Add(RadioButtonPhysics);
+            groupBox1.Controls.Add(RadioButtonMath);
+            groupBox1.Location = new System.Drawing.Point(211, 372);
+            groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            groupBox1.Size = new System.Drawing.Size(219, 94);
+            groupBox1.TabIndex = 4;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Предмет";
+            // 
+            // RadioButtonChemistry
+            // 
+            RadioButtonChemistry.AutoSize = true;
+            RadioButtonChemistry.Location = new System.Drawing.Point(13, 66);
+            RadioButtonChemistry.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            RadioButtonChemistry.Name = "RadioButtonChemistry";
+            RadioButtonChemistry.Size = new System.Drawing.Size(61, 19);
+            RadioButtonChemistry.TabIndex = 2;
+            RadioButtonChemistry.TabStop = true;
+            RadioButtonChemistry.Text = "Химия";
+            RadioButtonChemistry.UseVisualStyleBackColor = true;
+            // 
+            // RadioButtonPhysics
+            // 
+            RadioButtonPhysics.AutoSize = true;
+            RadioButtonPhysics.Location = new System.Drawing.Point(13, 44);
+            RadioButtonPhysics.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            RadioButtonPhysics.Name = "RadioButtonPhysics";
+            RadioButtonPhysics.Size = new System.Drawing.Size(65, 19);
+            RadioButtonPhysics.TabIndex = 1;
+            RadioButtonPhysics.TabStop = true;
+            RadioButtonPhysics.Text = "Физика";
+            RadioButtonPhysics.UseVisualStyleBackColor = true;
+            // 
+            // RadioButtonMath
+            // 
+            RadioButtonMath.AutoSize = true;
+            RadioButtonMath.Location = new System.Drawing.Point(13, 21);
+            RadioButtonMath.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            RadioButtonMath.Name = "RadioButtonMath";
+            RadioButtonMath.Size = new System.Drawing.Size(92, 19);
+            RadioButtonMath.TabIndex = 0;
+            RadioButtonMath.TabStop = true;
+            RadioButtonMath.Text = "Математика";
+            RadioButtonMath.UseVisualStyleBackColor = true;
+            // 
+            // TextBoxTeachPass
+            // 
+            TextBoxTeachPass.Location = new System.Drawing.Point(38, 445);
+            TextBoxTeachPass.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            TextBoxTeachPass.Name = "TextBoxTeachPass";
+            TextBoxTeachPass.Size = new System.Drawing.Size(157, 23);
+            TextBoxTeachPass.TabIndex = 3;
+            // 
+            // TextBoxTeachLogin
+            // 
+            TextBoxTeachLogin.Location = new System.Drawing.Point(38, 402);
+            TextBoxTeachLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            TextBoxTeachLogin.Name = "TextBoxTeachLogin";
+            TextBoxTeachLogin.Size = new System.Drawing.Size(157, 23);
+            TextBoxTeachLogin.TabIndex = 2;
+            // 
+            // TextNameTeach
+            // 
+            TextNameTeach.Location = new System.Drawing.Point(38, 359);
+            TextNameTeach.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            TextNameTeach.Name = "TextNameTeach";
+            TextNameTeach.Size = new System.Drawing.Size(157, 23);
+            TextNameTeach.TabIndex = 1;
+            // 
+            // GridViewTeachers
+            // 
+            GridViewTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GridViewTeachers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { Column1ФИО, Column2Логин, Column3Пароль, Column4Предмет, Column1, Column2, Column3, Column4, Column5 });
+            GridViewTeachers.Location = new System.Drawing.Point(7, 2);
+            GridViewTeachers.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            GridViewTeachers.Name = "GridViewTeachers";
+            GridViewTeachers.RowHeadersWidth = 51;
+            GridViewTeachers.Size = new System.Drawing.Size(996, 333);
+            GridViewTeachers.TabIndex = 0;
+            // 
+            // Column1ФИО
+            // 
+            Column1ФИО.HeaderText = "ФИО";
+            Column1ФИО.MinimumWidth = 6;
+            Column1ФИО.Name = "Column1ФИО";
+            Column1ФИО.Width = 125;
+            // 
+            // Column2Логин
+            // 
+            Column2Логин.HeaderText = "Логин";
+            Column2Логин.MinimumWidth = 6;
+            Column2Логин.Name = "Column2Логин";
+            Column2Логин.Width = 125;
+            // 
+            // Column3Пароль
+            // 
+            Column3Пароль.HeaderText = "Пароль";
+            Column3Пароль.MinimumWidth = 6;
+            Column3Пароль.Name = "Column3Пароль";
+            Column3Пароль.Width = 125;
+            // 
+            // Column4Предмет
+            // 
+            Column4Предмет.HeaderText = "Предмет";
+            Column4Предмет.MinimumWidth = 6;
+            Column4Предмет.Name = "Column4Предмет";
+            Column4Предмет.Width = 125;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "ПН";
+            Column1.MinimumWidth = 6;
+            Column1.Name = "Column1";
+            Column1.Width = 125;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "ВТ";
+            Column2.MinimumWidth = 6;
+            Column2.Name = "Column2";
+            Column2.Width = 125;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "СР";
+            Column3.MinimumWidth = 6;
+            Column3.Name = "Column3";
+            Column3.Width = 125;
+            // 
+            // Column4
+            // 
+            Column4.HeaderText = "ЧТ";
+            Column4.MinimumWidth = 6;
+            Column4.Name = "Column4";
+            Column4.Width = 125;
+            // 
+            // Column5
+            // 
+            Column5.HeaderText = "ПТ";
+            Column5.MinimumWidth = 6;
+            Column5.Name = "Column5";
+            Column5.Width = 125;
             // 
             // Main
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1031, 519);
+            ClientSize = new System.Drawing.Size(1029, 517);
             Controls.Add(tabControl1);
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            MaximumSize = new System.Drawing.Size(1047, 558);
-            MinimumSize = new System.Drawing.Size(949, 558);
+            MaximumSize = new System.Drawing.Size(1047, 556);
+            MinimumSize = new System.Drawing.Size(949, 556);
             Name = "Main";
             Text = "Эл. деканат";
             Load += Main_Load;
@@ -528,6 +829,11 @@
             tabPage3.ResumeLayout(false);
             tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewReport).EndInit();
+            tabPage4.ResumeLayout(false);
+            tabPage4.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)GridViewTeachers).EndInit();
             ResumeLayout(false);
         }
 
@@ -575,6 +881,32 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridView GridViewTeachers;
+        private System.Windows.Forms.TextBox TextBoxTeachPass;
+        private System.Windows.Forms.TextBox TextBoxTeachLogin;
+        private System.Windows.Forms.TextBox TextNameTeach;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button ButtonAddTeach;
+        private System.Windows.Forms.RadioButton RadioButtonChemistry;
+        private System.Windows.Forms.RadioButton RadioButtonPhysics;
+        private System.Windows.Forms.RadioButton RadioButtonMath;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1ФИО;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2Логин;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3Пароль;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4Предмет;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
     }
 }
 

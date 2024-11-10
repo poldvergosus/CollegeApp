@@ -35,6 +35,7 @@
             buttonLogin = new System.Windows.Forms.Button();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             pictureBox2 = new System.Windows.Forms.PictureBox();
+            button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -103,18 +104,34 @@
             pictureBox2.TabIndex = 7;
             pictureBox2.TabStop = false;
             // 
+            // button1
+            // 
+            button1.BackColor = System.Drawing.Color.IndianRed;
+            button1.Location = new System.Drawing.Point(412, 0);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(42, 23);
+            button1.TabIndex = 8;
+            button1.Text = "Х";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
+            // 
             // LogIn
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             ClientSize = new System.Drawing.Size(454, 346);
+            ControlBox = false;
+            Controls.Add(button1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(buttonLogin);
             Controls.Add(passField);
             Controls.Add(loginField);
             Controls.Add(label1);
+            FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "LogIn";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             Text = "LogIn";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
@@ -131,5 +148,6 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button button1;
     }
 }
