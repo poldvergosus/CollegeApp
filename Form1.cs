@@ -42,7 +42,8 @@ namespace CollegeApp
 
         private int currentStudents;
 
-        private Teacher[] teachers;
+        public Teacher[] teachers;
+        private string subject;
 
         public Main()
         {
@@ -84,7 +85,7 @@ namespace CollegeApp
             }
         }
 
-        private struct Teacher
+        public struct Teacher
         {
             public string Login;
             public string Password;
