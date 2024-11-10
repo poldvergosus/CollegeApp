@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -427,13 +428,37 @@ namespace CollegeApp
 
         private void buttonSortStudents_Click(object sender, EventArgs e)
         {
+            string sortType = comboBoxReport2.SelectedItem?.ToString();
+
+            //проверка
+            if (string.IsNullOrEmpty(sortType))
+            {
+                MessageBox.Show("Выберите тип сортировки");
+                return;
+            }
+
             //созд копию
             Student[] studentsToSort = new Student[currentStudents];
             Array.Copy(students, studentsToSort, currentStudents);
 
-            //по убыванию
-            Array.Sort(studentsToSort, (x, y) => y.CalculateAverageGrade().CompareTo(x.CalculateAverageGrade()));
-
+            //сортировка
+            if (sortType == "по возрастан")
+            {
+                Array.Sort(studentsToSort, (x, y) => x.CalculateAverageGrade().CompareTo(y.CalculateAverageGrade()));
+            }
+            else if (sortType == "по убыван")
+            {
+                Array.Sort(studentsToSort, (x, y) => y.CalculateAverageGrade().CompareTo(x.CalculateAverageGrade()));
+            }
+            else if (sortType == "от А до Я")
+            {
+                Array.Sort(studentsToSort, (x, y) => string.Compare(x.FullName, y.FullName, StringComparison.OrdinalIgnoreCase));
+            }
+            else if (sortType == "от Я до А")
+            {
+                Array.Sort(studentsToSort, (x, y) => string.Compare(y.FullName, x.FullName, StringComparison.OrdinalIgnoreCase));
+            }
+            
             DisplaySortedStudents(studentsToSort);
         }
 
@@ -443,10 +468,13 @@ namespace CollegeApp
 
             foreach (var student in sortedStudents)
             {
-                dataGridViewReport.Rows.Add(
-                    student.FullName,
-                    student.CalculateAverageGrade().ToString("F2") // Отображение среднего с двумя знаками после точки
-                );
+                int rowIndex = dataGridViewReport.Rows.Add(student.FullName, student.CalculateAverageGrade().ToString("F2"));
+
+                //изменение цвета текста, если средний балл меньше 3
+                if (student.CalculateAverageGrade() < 3)
+                {
+                    dataGridViewReport.Rows[rowIndex].Cells[1].Style.ForeColor = Color.Red;
+                }
             }
         }
 

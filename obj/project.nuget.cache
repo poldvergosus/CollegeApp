@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "CoJmn2ZEvrynM+fFMJq5cRnOMDTq+udLYkEDTrtX7ufxxumUnvfg7bOa+bHXDa0iggAoh1a8RALGiLZqi8uomw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\drost\\Downloads\\CollegeApp-TeacherTab\\CollegeApp.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\drost\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\drost\\.nuget\\packages\\system.data.datasetextensions\\4.5.0\\system.data.datasetextensions.4.5.0.nupkg.sha512",
+    "C:\\Users\\drost\\.nuget\\packages\\system.reactive\\6.0.1\\system.reactive.6.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}
