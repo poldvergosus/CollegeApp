@@ -1,0 +1,10 @@
+C:\Users\полено\source\repos\CollegeApp\bin\Debug\CollegeApp.exe.config
+C:\Users\полено\source\repos\CollegeApp\bin\Debug\CollegeApp.exe
+C:\Users\полено\source\repos\CollegeApp\bin\Debug\CollegeApp.pdb
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.csproj.AssemblyReference.cache
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.Main.resources
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.Properties.Resources.resources
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.csproj.GenerateResource.cache
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.csproj.CoreCompileInputs.cache
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.exe
+C:\Users\полено\source\repos\CollegeApp\obj\Debug\CollegeApp.pdb
