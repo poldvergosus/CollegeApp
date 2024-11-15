@@ -130,7 +130,6 @@ namespace CollegeApp
         }
 
 
-
         //_________________________________Вкладка Студенты______________________________
 
         private void ButtonAdd_Click(object sender, EventArgs e)
@@ -208,7 +207,7 @@ namespace CollegeApp
             }
         }
 
-        //_________________Удалить Студента__________________________________________
+        //______________________________Удалить Студента__________________________________________
 
         private void ButtonDelete_Click(object sender, EventArgs e)
         {
@@ -311,9 +310,7 @@ namespace CollegeApp
             return selectedCount == MaxSubjects;
         }
 
-
         //_________________________________Вкладка Оценки_________________________________
-
 
         private void InitializeLessonComboBox()
         {
@@ -345,12 +342,7 @@ namespace CollegeApp
             GridViewGrades.Rows.Clear();
             for (int i = 0; i < currentStudents; i++)
             {
-                string subject1Grades = students[i].Subject1Grades.Any(g => g != 0) ? string.Join(", ", students[i].Subject1Grades)
-                                                                                    : "Нет оценок";
-                string subject2Grades = students[i].Subject2Grades.Any(g => g != 0) ? string.Join(", ", students[i].Subject2Grades)
-                                                                                    : "Нет оценок";
-
-                GridViewGrades.Rows.Add(
+                    GridViewGrades.Rows.Add(
                     students[i].FullName,
                     students[i].Subject1,
                     string.Join(", ", students[i].Subject1Grades),
@@ -427,9 +419,7 @@ namespace CollegeApp
             }
         }
 
-
-
-        ////_________________________________Вкладка Отчеты______________________________
+      ////_________________________________Вкладка Отчеты______________________________
 
         private void buttonSortStudents_Click(object sender, EventArgs e)
         {
@@ -520,9 +510,7 @@ namespace CollegeApp
             workDays[3] = checkBox4.Checked ? '+' : '-';
             workDays[4] = checkBox5.Checked ? '+' : '-';
 
-
             AddTeacher(fullName, login, password, subject, workDays);
-
         }
 
         private void AddTeacher(string fullName, string login, string password, string subject, char[] workDays)//Изменение и добавление совмещено
